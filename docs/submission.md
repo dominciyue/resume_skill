@@ -21,6 +21,20 @@
   STAR 量化简历（严格防虚构），并基于你的简历做大厂面试官式压力追问。
 ```
 
+### 按目标仓库格式定制的条目（即贴即用）
+
+**laolaoshiren/claude-code-skills-zh**（第三方技能表，分类放「🌏 中文专属」，
+表格列 = 技能 / 说明）：
+```markdown
+| [offer-helper](https://github.com/dominciyue/resume_skill) | 中文求职助手：摄入简历/GitHub仓库/文档建经历库，按JD生成STAR量化简历（严格防虚构），并做大厂式由浅及深的深挖面试 |
+```
+
+**travisvn/awesome-claude-skills**（Community Skills → Individual Skills，
+格式 `**[名称](链接)** - 描述`）：
+```markdown
+- **[offer-helper](https://github.com/dominciyue/resume_skill)** - Chinese job-hunting skill: ingests your resume / GitHub repos / docs into a persistent experience library, tailors STAR-quantified resumes to any JD (strict anti-fabrication), and runs big-tech-style progressive ("由浅及深") mock interviews grounded in your actual resume.
+```
+
 ## 一句话 list 条目（英文合集用）
 
 ```markdown
