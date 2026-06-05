@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>{{姓名}} - {{求职岗位}}</title>
+<style>
+  @page { size: A4; margin: 14mm 16mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    font-size: 10.5pt; line-height: 1.5; color: #222;
+    max-width: 210mm; margin: 0 auto; padding: 14mm 16mm;
+  }
+  header { display: flex; justify-content: space-between;
+           align-items: baseline; border-bottom: 2px solid #2b4a6f;
+           padding-bottom: 6px; margin-bottom: 10px; }
+  h1 { font-size: 17pt; color: #2b4a6f; }
+  .contact { font-size: 9.5pt; color: #555; text-align: right; }
+  h2 { font-size: 11.5pt; color: #2b4a6f; border-left: 3px solid #2b4a6f;
+       padding-left: 6px; margin: 12px 0 6px; }
+  .entry { margin-bottom: 8px; }
+  .entry-head { display: flex; justify-content: space-between; }
+  .entry-head b { font-size: 10.5pt; }
+  .entry-head span { color: #666; font-size: 9.5pt; }
+  ul { padding-left: 1.2em; margin-top: 2px; }
+  li { margin-bottom: 2px; }
+  @media print { body { padding: 0; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>{{姓名}}</h1>
+  <div class="contact">{{电话}} · {{邮箱}} · {{城市}}<br>求职意向：{{岗位}}</div>
+</header>
+
+<h2>教育经历</h2>
+<div class="entry">
+  <div class="entry-head"><b>{{学校}} · {{专业}}（{{学历}}）</b><span>{{时间}}</span></div>
+  <ul><li>{{GPA/排名/相关课程}}</li></ul>
+</div>
+
+<h2>实习经历</h2>
+<div class="entry">
+  <div class="entry-head"><b>{{公司}} · {{岗位}}</b><span>{{时间}}</span></div>
+  <ul>
+    <li>{{STAR bullet 1}}</li>
+    <li>{{STAR bullet 2}}</li>
+  </ul>
+</div>
+
+<h2>项目经历</h2>
+<div class="entry">
+  <div class="entry-head"><b>{{项目名}}（{{角色}}）</b><span>{{时间}}</span></div>
+  <ul>
+    <li>{{STAR bullet 1}}</li>
+  </ul>
+</div>
+
+<h2>技能与获奖</h2>
+<ul>
+  <li>{{硬技能（注明实际使用场景）}}</li>
+  <li>{{证书/语言/奖项}}</li>
+</ul>
+</body>
+</html>
