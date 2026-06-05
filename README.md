@@ -47,7 +47,7 @@ Claude.ai、Cursor、Codex 等支持 Agent Skills 标准的运行时。
 简历是 `.html`，**怎么变成能投的 PDF**：见 [`docs/export-guide.md`](docs/export-guide.md)
 （浏览器打印 → 另存为 PDF，1 分钟，记得勾「背景图形」）。
 
-📺 **完整演示**（一份"水"简历如何被改造、被面试官问穿）：[`examples/demo.md`](examples/demo.md)
+📖 **工作原理示意**（含大厂面试"由浅及深"提问阶梯）：[`examples/demo.md`](examples/demo.md)
 　｜　**发个 GitHub 仓库就能建经历库**：[`examples/github-intake-example.md`](examples/github-intake-example.md)
 
 ## 安装
