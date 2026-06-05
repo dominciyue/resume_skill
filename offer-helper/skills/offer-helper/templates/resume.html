@@ -8,6 +8,8 @@
   4. 模块顺序：应届=教育→实习→项目→技能（删掉 summary 块）；
      社招=summary→工作→项目→技能→教育（把教育块移到最后，GPA 通常删）。
      按人群删掉/重排 section，不需要的整块删除。
+     两页简历（社招 10+ 年）：靠 CSS 的 break-inside:avoid 防止 entry 被劈开；
+     确保第 2 页不要只剩 1-2 行尾巴，目标每页都接近写满。
   5. 链接写可见全文 URL（github.com/xxx）。日期统一 YYYY.MM。
   6. 交付前自检：全文不得残留任何 {{...}} 占位符；没有内容的 section 整段删除。
   7. 文件名 resume-{公司或岗位}-{YYYYMMDD}.html，存到 ~/offer-helper-data/。
@@ -33,7 +35,9 @@
   h2 { font-size: 13.5pt; color: #1f3a5f; font-weight: bold;
        border-bottom: 1.5px solid #1f3a5f; padding-bottom: 2px;
        margin: 14px 0 6px; letter-spacing: 0.5px; }
-  .entry { margin-bottom: 9px; }
+  .entry { margin-bottom: 9px; break-inside: avoid; page-break-inside: avoid; }
+  h2 { break-after: avoid; page-break-after: avoid; }
+  li { break-inside: avoid; }
   .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
   .entry-head .left b { font-size: 10.5pt; }
   .entry-head .left .role { color: #333; font-weight: normal; }
