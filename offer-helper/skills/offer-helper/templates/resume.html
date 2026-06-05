@@ -1,12 +1,16 @@
 <!--
   给 Claude 的填充说明（生成后请删除本注释）：
-  1. 这是模板示例，section 段数不固定。用户有几段实习/项目，就把对应的
-     整个 <div class="entry"> 块复制几遍——不要因为模板只画了 1 段就丢经历。
-  2. 每段 bullet 数按内容 1-3 条（项目示例只给了 1 条，按需增减 <li>）。
-  3. 字段映射：教育的 GPA/排名/相关课程可拆成多个 <li>；profile.md 里
-     「量化结果: 暂缺」的经历按 star-rules.md 用定性表述，不要补数字。
-  4. 交付前自检：全文不得残留任何 {{...}} 占位符；没有内容的 section 整段删除。
-  5. 文件名 resume-{公司或岗位}-{YYYYMMDD}.html，存到 ~/offer-helper-data/。
+  排版与内容标准见 references/resume-quality.md，务必逐条对照。要点：
+  1. section 段数不固定：用户有几段实习/项目就复制几遍整个 <div class="entry"> 块，
+     不要因为模板只画了 1 段就丢经历；经历多时只留 3 段最匹配的。
+  2. 每段 3-5 条 bullet、每条 ≤2 行；bullet 用 XYZ/STAR：强动词 + 量化结果 + 方法。
+  3. profile.md 标「量化结果: 暂缺」的经历用定性表述，不要补数字。
+  4. 模块顺序：应届=教育→实习→项目→技能（删掉 summary 块）；
+     社招=summary→工作→项目→技能→教育（把教育块移到最后，GPA 通常删）。
+     按人群删掉/重排 section，不需要的整块删除。
+  5. 链接写可见全文 URL（github.com/xxx）。日期统一 YYYY.MM。
+  6. 交付前自检：全文不得残留任何 {{...}} 占位符；没有内容的 section 整段删除。
+  7. 文件名 resume-{公司或岗位}-{YYYYMMDD}.html，存到 ~/offer-helper-data/。
 -->
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -14,62 +18,87 @@
 <meta charset="UTF-8">
 <title>{{姓名}} - {{求职岗位}}</title>
 <style>
-  @page { size: A4; margin: 14mm 16mm; }
+  @page { size: A4; margin: 18mm 18mm; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
-    font-size: 10.5pt; line-height: 1.5; color: #222;
-    max-width: 210mm; margin: 0 auto; padding: 14mm 16mm;
+    font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+    font-size: 10.5pt; line-height: 1.45; color: #000;
+    max-width: 210mm; margin: 0 auto; padding: 18mm;
   }
-  header { display: flex; justify-content: space-between;
-           align-items: baseline; border-bottom: 2px solid #2b4a6f;
-           padding-bottom: 6px; margin-bottom: 10px; }
-  h1 { font-size: 17pt; color: #2b4a6f; }
-  .contact { font-size: 9.5pt; color: #555; text-align: right; }
-  h2 { font-size: 11.5pt; color: #2b4a6f; border-left: 3px solid #2b4a6f;
-       padding-left: 6px; margin: 12px 0 6px; }
-  .entry { margin-bottom: 8px; }
-  .entry-head { display: flex; justify-content: space-between; }
-  .entry-head b { font-size: 10.5pt; }
-  .entry-head span { color: #666; font-size: 9.5pt; }
-  ul { padding-left: 1.2em; margin-top: 2px; }
-  li { margin-bottom: 2px; }
-  @media print { body { padding: 0; } }
+  header { text-align: center; margin-bottom: 4px; }
+  h1 { font-size: 21pt; color: #1f3a5f; letter-spacing: 1px; }
+  .contact { font-size: 9.5pt; color: #333; margin-top: 4px; }
+  .contact a { color: #1f3a5f; text-decoration: none; }
+  .summary { font-size: 10.5pt; color: #222; margin: 8px 0 4px; text-align: center; }
+  h2 { font-size: 13.5pt; color: #1f3a5f; font-weight: bold;
+       border-bottom: 1.5px solid #1f3a5f; padding-bottom: 2px;
+       margin: 14px 0 6px; letter-spacing: 0.5px; }
+  .entry { margin-bottom: 9px; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .entry-head .left b { font-size: 10.5pt; }
+  .entry-head .left .role { color: #333; font-weight: normal; }
+  .entry-head .date { color: #555; font-size: 9.5pt; white-space: nowrap; }
+  ul { padding-left: 1.15em; margin-top: 3px; }
+  li { margin-bottom: 3px; }
+  .skills p { margin-bottom: 3px; }
+  .skills b { color: #1f3a5f; }
+  @media print { body { padding: 0; } a { color: #1f3a5f !important; } }
 </style>
 </head>
 <body>
+
 <header>
   <h1>{{姓名}}</h1>
-  <div class="contact">{{电话}} · {{邮箱}} · {{城市}}<br>求职意向：{{岗位}}</div>
+  <div class="contact">
+    {{电话}} · {{邮箱}} · {{城市}} · 求职意向：{{岗位}}
+    <!-- 技术岗可加：· <a href="https://github.com/{{用户名}}">github.com/{{用户名}}</a> -->
+  </div>
 </header>
+
+<!-- 社招用：一句话成就型 summary（应届请删除整块 .summary） -->
+<div class="summary">{{一句话定位，如：3 年后端，主导过日均千万级订单系统的缓存与稳定性优化}}</div>
 
 <h2>教育经历</h2>
 <div class="entry">
-  <div class="entry-head"><b>{{学校}} · {{专业}}（{{学历}}）</b><span>{{时间}}</span></div>
-  <ul><li>{{GPA/排名/相关课程}}</li></ul>
+  <div class="entry-head">
+    <div class="left"><b>{{学校}}</b> <span class="role">{{专业}} · {{学历}}</span></div>
+    <div class="date">{{YYYY.MM}}–{{YYYY.MM}}</div>
+  </div>
+  <ul>
+    <li>{{GPA 3.X/4.0（年级前 X%）}}；相关课程：{{与岗位相关的 3-5 门}}</li>
+  </ul>
 </div>
 
 <h2>实习经历</h2>
 <div class="entry">
-  <div class="entry-head"><b>{{公司}} · {{岗位}}</b><span>{{时间}}</span></div>
+  <div class="entry-head">
+    <div class="left"><b>{{公司}}</b> <span class="role">{{岗位}}</span></div>
+    <div class="date">{{YYYY.MM}}–{{YYYY.MM}}</div>
+  </div>
   <ul>
-    <li>{{STAR bullet 1}}</li>
-    <li>{{STAR bullet 2}}</li>
+    <li>{{XYZ bullet：强动词 + 做了什么 + 量化结果 + 方法/技术}}</li>
+    <li>{{XYZ bullet 2}}</li>
+    <li>{{XYZ bullet 3}}</li>
   </ul>
 </div>
 
 <h2>项目经历</h2>
 <div class="entry">
-  <div class="entry-head"><b>{{项目名}}（{{角色}}）</b><span>{{时间}}</span></div>
+  <div class="entry-head">
+    <div class="left"><b>{{项目名}}</b> <span class="role">{{角色}}</span></div>
+    <div class="date">{{YYYY.MM}}–{{YYYY.MM}}</div>
+  </div>
   <ul>
-    <li>{{STAR bullet 1}}</li>
+    <li>{{XYZ bullet：含用到的技术栈；技术岗可加项目链接}}</li>
+    <li>{{XYZ bullet 2}}</li>
   </ul>
 </div>
 
-<h2>技能与获奖</h2>
-<ul>
-  <li>{{硬技能（注明实际使用场景）}}</li>
-  <li>{{证书/语言/奖项}}</li>
-</ul>
+<h2>专业技能</h2>
+<div class="skills">
+  <p><b>技术栈：</b>{{只写真会的语言/框架/工具，注明熟练度或使用场景}}</p>
+  <p><b>证书/语言：</b>{{如 CET-6 X 分；相关证书}}</p>
+</div>
+
 </body>
 </html>
