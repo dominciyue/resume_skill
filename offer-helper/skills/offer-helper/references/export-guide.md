@@ -6,8 +6,8 @@ offer-helper 生成的是一份 A4 排版好的 `.html` 简历。投递平台大
 ## 通用三步（Chrome / Edge）
 
 1. **打开 HTML**：双击生成的 `resume-xxx.html` 文件，用浏览器打开。
-   - Claude Code 用户：文件在 `~/offer-helper-data/` 下。
-   - 网页版用户：把 Claude 给你的 HTML 文本存成一个 `简历.html` 文件再打开
+   - 有文件系统的运行时（Claude Code/Cursor 等）：文件在 `~/offer-helper-data/` 下。
+   - 网页版/无文件环境：把助手给你的 HTML 文本存成一个 `简历.html` 文件再打开
      （新建记事本/文本文件，把代码粘进去，文件名后缀改成 `.html`）。
 2. **打印**：按 `Ctrl/Cmd + P` 调出打印窗口。
 3. **存为 PDF**，并核对这几个设置：
