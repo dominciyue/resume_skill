@@ -44,7 +44,7 @@ Claude.ai、Cursor、Codex 等支持 Agent Skills 标准的运行时。
   → 结束后给：四维评分 + 简历漏洞清单 + 经历库回改建议
 ```
 
-简历是 `.html`，**怎么变成能投的 PDF**：见 [`docs/export-guide.md`](docs/export-guide.md)
+简历是 `.html`，**怎么变成能投的 PDF**：见 [`导出指南`](offer-helper/skills/offer-helper/references/export-guide.md)
 （浏览器打印 → 另存为 PDF，1 分钟，记得勾「背景图形」）。
 
 📖 **工作原理示意**（含大厂面试"由浅及深"提问阶梯）：[`examples/demo.md`](examples/demo.md)
@@ -52,28 +52,33 @@ Claude.ai、Cursor、Codex 等支持 Agent Skills 标准的运行时。
 
 ## 安装
 
-**Claude.ai 网页 / 桌面版（小白推荐，无需命令行）：**
-1. 在本仓库页面点绿色 **Code → Download ZIP**，解压得到 `offer-helper/` 文件夹。
-2. 把 `offer-helper/` 这个文件夹**重新压成 zip**（确保 zip 解开后第一层就是
-   `SKILL.md`，不要多套一层目录）。
+**方式一 · Claude Code 插件市场（一行安装，推荐）：**
+```
+/plugin marketplace add dominciyue/resume_skill
+/plugin install offer-helper@resume-skill-marketplace
+```
+装好后在对话里说"帮我准备求职"即可触发。更新：`/plugin marketplace update resume-skill-marketplace`。
+
+**方式二 · Claude.ai 网页 / 桌面版（无需命令行）：**
+1. 在本仓库页面点绿色 **Code → Download ZIP**，解压。
+2. 进入 `offer-helper/skills/offer-helper/`，把这个文件夹**压成 zip**（确保 zip
+   解开后第一层就是 `SKILL.md`，不要多套一层目录）。
 3. 在 Claude.ai → **Settings → Capabilities → Skills** 上传该 zip。
    （若找不到 Skills 入口，说明你的账号类型暂不支持上传自定义 skill，请改用
-   下面的 Claude Code 方式。）
+   方式一或方式三。）
 4. 装好后在对话里说一句"**帮我准备求职**"，助手会主动开始建经历库 = 成功。
 
-**Claude Code：**
+**方式三 · Claude Code 手动安装：**
 ```bash
 git clone git@github.com:dominciyue/resume_skill.git
-cp -r resume_skill/offer-helper ~/.claude/skills/offer-helper
+cp -r resume_skill/offer-helper/skills/offer-helper ~/.claude/skills/offer-helper
 ```
-之后在对话里说"帮我准备求职"即可触发。
 
 > ⚠️ **更新 skill 前注意**：你的经历库存在 `~/offer-helper-data/`（独立于 skill
-> 目录），所以重装/更新 `~/.claude/skills/offer-helper` **不会动到你的经历库**，
-> 放心覆盖。
+> 目录），所以重装/更新 **不会动到你的经历库**，放心覆盖。
 
-**Cursor / Codex 等：** 将 `offer-helper/` 放入对应工具的 skills 目录
-（遵循 Agent Skills 标准，根目录含 `SKILL.md` 即可）。
+**Cursor / Codex 等：** 将 `offer-helper/skills/offer-helper/` 放入对应工具的
+skills 目录（遵循 Agent Skills 标准，根目录含 `SKILL.md` 即可）。
 
 ## 隐私
 

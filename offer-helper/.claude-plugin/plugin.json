@@ -1,0 +1,13 @@
+{
+  "name": "offer-helper",
+  "displayName": "上岸 Offer 助手",
+  "description": "中文求职助手：摄入简历/GitHub 仓库/文档建立可持久化经历库，针对 JD 生成高质量 STAR 量化简历（严格防虚构），并基于你的简历做大厂面试官式由浅及深的深挖面试。",
+  "version": "1.0.0",
+  "author": {
+    "name": "dominciyue"
+  },
+  "homepage": "https://github.com/dominciyue/resume_skill",
+  "repository": "https://github.com/dominciyue/resume_skill",
+  "license": "MIT",
+  "keywords": ["resume", "job-search", "interview", "career", "chinese", "求职", "简历", "面试"]
+}
